@@ -1,5 +1,5 @@
-const fs = require('fs')
-
+// const fs = require('fs')
+import fs from "fs"
 class productsManage {
     id = 1
     constructor() {

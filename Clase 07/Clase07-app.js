@@ -6,6 +6,10 @@ const app = Express();
 const productsManager = new productsManage1();
 const products = await productsManager.getProducts()
 
+app.get('/',(req,res)=>{
+    res.send(products)
+})
+
 app.get('/:productId',(req,res)=>{
     const productId= +req.params.productId
     const product = products.find((product)=>product.id===productId)
