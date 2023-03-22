@@ -86,37 +86,3 @@ class productsManage {
 }
 
 export default productsManage;
-
-const main = async () => {
-    const productsManager = new productsManage()
-    await productsManager.loadProdcuts()
-
-    await productsManager.addproduct({
-        title: "Jabon Liquido",
-        description: "para lavar la ropa",
-        priece: 40,
-        thumbnail: "Sin Imagen",
-        stock: 100,
-        code: "abc123"
-    })
-
-    console.log("Todos los Prodcutos")
-    const products = await productsManager.getProducts()
-    console.log(products)
-
-    console.log("Product By ID")
-    const productByID = await productsManager.getProductsById(1)
-    console.log(productByID)
-
-    await productsManager.updateProduct(1, "description", "Cambiado")
-    console.log("Product Cambiado")
-    const productCambiado = await productsManager.getProductsById(1)
-    console.log(productCambiado)
-
-    await productsManager.deleteProduct(2)
-    console.log("Todos los Prodcutos menos ID 2")
-    const productsDelete = await productsManager.getProducts()
-    console.log(productsDelete)
-}
-
-// main()
