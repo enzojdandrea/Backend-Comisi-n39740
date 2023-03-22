@@ -1,0 +1,17 @@
+{
+  "name": "clase-07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Clase05-productManager-Archivos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
