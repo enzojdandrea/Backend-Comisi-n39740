@@ -1,5 +1,5 @@
-// const fs = require('fs')
-import fs from "fs"
+const fs = require('fs')
+// import fs from "fs"
 class productsManage {
     id = 1
     constructor() {
@@ -53,12 +53,7 @@ class productsManage {
     async getProductsById(id) {
         const products = await fs.promises.readFile(this.path, 'utf-8')
         const productsParse = JSON.parse(products)
-
         const product = productsParse.find((prod) => prod.id === id);
-
-        if (!product) {
-            throw Error(`No existe ningun porducto con ID: ${id}`);
-        }
         return product;
     }
 
@@ -85,4 +80,4 @@ class productsManage {
     }
 }
 
-export default productsManage;
+module.exports = productsManage;

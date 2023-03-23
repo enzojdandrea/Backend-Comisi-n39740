@@ -1,33 +1,48 @@
-import Express from "express";
-import productsManage1 from "./productManager.js";
+// import Express from "express";
 
+// import productsManage from "./productManager.js";
+const Express = require('express')
 const app = Express();
 
-const productsManager = new productsManage1();
+const productsManager = require('./productManager')
+const pM = new productsManager();
 
-app.get('/',(req,res)=>{
-    const products = productsManager.getProducts()
+
+app.get('/', async (req, res) => {
+    const products = await pM.getProducts()
     res.send(products)
 })
 
-app.use(Express.urlencoded({extended: true}))
+app.use(Express.urlencoded({ extended: true }))
 
-app.get('/query',(req,res)=>{
+app.get('/products', async (req, res) => {
     let consulta = req.query
-    let {limit}=consulta
-    console.log(limit)
-})
+    let { limit } = consulta
 
-app.get('/:productId',(req,res)=>{
-    const productId= +req.params.productId
-    const product = productsManager.getProductsById(productId)
+    const products = await pM.getProducts()
+    const prodructsLimit = []
 
-    if(!product){
-        res.send({error: "Producto no encontrado"})
+    for (let i = 0; i < limit; i++) {
+        if (!products[i]) {
+            i = limit
+        } else {
+            prodructsLimit.push(products[i])
+        }
     }
-    res.send({data:product})
+
+    res.send(prodructsLimit)
 })
 
-app.listen(8083,()=>{
+app.get('/products/:pId', async (req, res) => {
+    const productId = +req.params.pId
+    const product = await pM.getProductsById(productId)
+
+    if (!product) {
+        res.send({ error: "Producto no encontrado" })
+    }
+    res.send(product)
+})
+
+app.listen(8084, () => {
     console.log("Servidor Escuchando")
 })

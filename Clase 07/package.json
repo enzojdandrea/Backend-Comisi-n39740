@@ -4,10 +4,10 @@
   "description": "",
   "main": "Clase05-productManager-Archivos.js",
   "scripts": {
+    "start": "nodemon Clase07-app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
