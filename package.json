@@ -1,0 +1,23 @@
+{
+  "name": "00-entregables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "00Subit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enzojdandrea/Backend-Comisi-n39740.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enzojdandrea/Backend-Comisi-n39740/issues"
+  },
+  "homepage": "https://github.com/enzojdandrea/Backend-Comisi-n39740#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
